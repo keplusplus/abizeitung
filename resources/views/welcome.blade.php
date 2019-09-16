@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-@if(auth()->user()->is_admin)
+@if(isset(auth()->user()->is_admin) && auth()->user()->is_admin)
   <meta http-equiv="refresh" content="3; URL=./admin/">
   <div class="container">
       <div class="row justify-content-center">
