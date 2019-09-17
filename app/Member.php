@@ -15,6 +15,10 @@ class Member extends Model
     }
 
     public function votes() {
-      $this->hasMany(Vote::class);
+      return $this->hasMany(Vote::class);
+    }
+
+    public function characteristics() {
+        return $this->hasOne(Characteristics::class);
     }
 }

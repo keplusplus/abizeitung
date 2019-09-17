@@ -35,7 +35,7 @@ class WelcomeController extends Controller
         }
       } else {
         // User is authenticated
-        return view('welcome');
+        return redirect()->route('home');
       }
     }
 }

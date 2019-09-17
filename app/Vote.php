@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Vote extends Model
 {
     public function ranking() {
-      $this->belongsTo(Ranking::class);
+      return $this->belongsTo(Ranking::class);
     }
 
     public function teacher() {
-      $this->belongsTo(Teacher::class);
+      return $this->belongsTo(Teacher::class);
     }
 
     public function member() {
-      $this->belongsTo(Member::class);
+      return $this->belongsTo(Member::class);
     }
 }
