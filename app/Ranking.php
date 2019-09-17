@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Ranking extends Model
 {
     public function votes() {
-      $this->hasMany(Vote::class);
+      return $this->hasMany(Vote::class);
     }
 }

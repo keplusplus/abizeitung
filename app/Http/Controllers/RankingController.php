@@ -26,7 +26,7 @@ class RankingController extends Controller
     }
 
     public function store() {
-      if(auth()->user->has_voted == true) return redirect()->route('home');
+      if(auth()->user()->has_voted == true) return redirect()->route('home');
 
       auth()->user()->has_voted = true;
       auth()->user()->save();

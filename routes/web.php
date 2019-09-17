@@ -20,6 +20,9 @@ Route::get('/comment', 'CommentsController@create')->name('comment');
 Route::post('/rankings', 'RankingController@store');
 Route::get('/rankings', 'RankingController@index');
 
+Route::post('/charasteristics', 'CharacterController@store');
+Route::get('/charasteristics', 'CharacterController@index');
+
 Route::get('/admin/generate', 'AdminController@generate');
 Route::get('/admin', 'AdminController@index')->name('admin');
 
