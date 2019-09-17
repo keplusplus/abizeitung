@@ -21,7 +21,7 @@ Route::post('/rankings', 'RankingController@store');
 Route::get('/rankings', 'RankingController@index');
 
 Route::post('/charasteristics', 'CharacterController@store');
-Route::get('/charasteristics', 'CharacterController@index');
+Route::get('/charasteristics', 'CharacterController@create');
 
 Route::get('/admin/generate', 'AdminController@generate');
 Route::get('/admin', 'AdminController@index')->name('admin');
