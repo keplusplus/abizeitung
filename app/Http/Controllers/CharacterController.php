@@ -22,7 +22,8 @@ class CharacterController extends Controller
         auth()->user()->save();
 
         $data = request()->validate([
-            'birthdate' => 'required'
+            'birthdate' => 'required',
+            'data_accepted' => 'accepted'
         ]);
 
         $cs = new Characteristics;

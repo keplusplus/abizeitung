@@ -61,7 +61,7 @@
                       </div>
                       <div class="col-auto">
                         @if(!isset($has_filled) || $has_filled == 0)
-                          <a href="{{ url('/charasteristics') }}" class="btn btn-warning">Ausfüllen</a>
+                          <a href="{{ url('/characteristics') }}" class="btn btn-warning">Ausfüllen</a>
                         @else
                           <button type="button" class="btn btn-disabled btn-success" disabled>Bereits ausgefüllt</a>
                         @endif
