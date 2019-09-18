@@ -10,7 +10,7 @@
                 <div class="card-body">
                   <h3 class="h3">Rankings</h3>
                   <p>
-                    !!!!!!! TODO anonym etc.
+                    Die abgegebenen Stimmen werden vollständig anonym verarbeitet, abgedruckt werden voraussichtlich jeweils die Top 3. Alle betroffenen Personen werden vor dem Druck nach dem Einverständnis gefragt.
                   </p>
                   <form method="post" action="{{ url('/rankings') }}">
                     @csrf
