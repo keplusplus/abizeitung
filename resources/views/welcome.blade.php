@@ -82,7 +82,7 @@
                         <h4 class="h4 my-auto">Sprüche Lehrer / Schüler</h4>
                       </div>
                       <div class="col-auto">
-                        <a href="" class="btn btn-primary">Einsenden</a>
+                        <a href="{{ url('/quote') }}" class="btn btn-primary">Einsenden</a>
                       </div>
                     </div>
                     <hr>

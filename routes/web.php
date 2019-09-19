@@ -17,6 +17,9 @@ Auth::routes();
 Route::post('/comment', 'CommentsController@store');
 Route::get('/comment', 'CommentsController@create')->name('comment');
 
+Route::post('/quote', 'QuotesController@store');
+Route::get('/quote', 'QuotesController@create')->name('quote');
+
 Route::post('/rankings', 'RankingController@store');
 Route::get('/rankings', 'RankingController@index');
 
