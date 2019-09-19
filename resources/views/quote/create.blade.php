@@ -84,14 +84,4 @@
         </div>
     </div>
 </div>
-
-<script type="text/javascript">
-    $('typeMember').addEventListener('click' function() {
-
-    });
-
-    $('typeTeacher').addEventListener('click' function() {
-
-    });
-</script>
 @endsection

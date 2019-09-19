@@ -30,3 +30,11 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
+$('typeMember').addEventListener('click' function() {
+  alert('now type is member!');
+});
+
+$('typeTeacher').addEventListener('click' function() {
+  alert('now type is teacher!');
+});
