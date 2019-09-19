@@ -21,4 +21,8 @@ class Member extends Model
     public function characteristics() {
         return $this->hasOne(Characteristics::class);
     }
+
+    public function quotes() {
+        return $this->hasMany(Quote::class);
+    }
 }
