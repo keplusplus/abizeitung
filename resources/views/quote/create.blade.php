@@ -14,19 +14,9 @@
                     </div>
                   @endif
                   <span style="font-style: italic;">Informationstext</span>
-                  <quote-form></quote-form>
                   <form class="mt-3" method="post" action="{{ url('/quote') }}">
                     @csrf
-                    <div class="form-group">
-                        <div class="btn-group btn-group-toggle" id="quoteType" data-toggle="buttons">
-                            <label class="btn btn-outline-primary active">
-                                <input type="radio" name="type" id="typeMember" autocomplete="off" checked> Schülerspruch
-                            </label>
-                            <label class="btn btn-outline-primary">
-                                <input type="radio" name="type" id="typeTeacher" autocomplete="off"> Lehrerspruch
-                            </label>
-                        </div>
-                    </div>
+                    <quote-form></quote-form>
                     <div class="form-group">
                         <label for="quoteMember">Schüler wählen</label>
                         <select class="form-control" id="quoteMember" name="member_id" required>
