@@ -26,7 +26,7 @@
                         <div class="form-check form-group">
                           <input class="form-check-input" type="checkbox" name="data_accepted" id="cb_data_agreement" required>
                           <label class="form-check-label" for="cb_data_agreement">
-                            Ich bin damit einverstanden, dass meine Angaben korrekt sind und diese in der Abizeitung 2020 vom Gymnasium St. Xaver abgedruckt werden dürfen.
+                              Ich versichere, dass meine Angaben korrekt sind und bin damit einverstanden, dass diese in der Abizeitung 2020 vom Gymnasium St. Xaver abgedruckt werden dürfen.
                           </label>
                           @if ($errors->has('data_accepted'))
                               <span class="invalid-feedback d-block" role="alert">
