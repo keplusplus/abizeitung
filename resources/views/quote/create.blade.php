@@ -14,6 +14,7 @@
                     </div>
                   @endif
                   <span style="font-style: italic;">Informationstext</span>
+                  <quote-form></quote-form>
                   <form class="mt-3" method="post" action="{{ url('/quote') }}">
                     @csrf
                     <div class="form-group">
