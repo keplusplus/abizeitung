@@ -30,11 +30,3 @@ Vue.component('quote-form', require('./components/QuoteForm.vue').default);
 const app = new Vue({
     el: '#app',
 });
-
-$('typeMember').addEventListener('click' function() {
-  alert('now type is member!');
-});
-
-$('typeTeacher').addEventListener('click' function() {
-  alert('now type is teacher!');
-});
