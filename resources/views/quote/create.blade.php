@@ -14,17 +14,22 @@
                     </div>
                   @endif
                   <span style="font-style: italic;">Informationstext</span>
-                  <form class="mt-3" method="post" action="{{ url('/quote') }}">
+                  <form class="mt-3" method="post" action="{{ url('/quote') }}" name="quoteform">
                     @csrf
-                    <div class="form-group">
+                    <!--<div class="form-group">
                         <div class="btn-group btn-group-toggle" id="quoteType" data-toggle="buttons">
                             <label class="btn btn-outline-primary active">
-                                <input type="radio" name="type" id="typeMember" autocomplete="off" checked> Schülerspruch
+                                <button type="button" name="type" autocomplete="off" onclick="setMember()" checked> Schülerspruch</button>
                             </label>
                             <label class="btn btn-outline-primary">
-                                <input type="radio" name="type" id="typeTeacher" autocomplete="off"> Lehrerspruch
+                                <button type="button" name="type" autocomplete="off" onclick="setTeacher()"> Lehrerspruch</button>
                             </label>
                         </div>
+                    </div>-->
+                    <div class="form-group">
+                        <input id="targetHidden" type="hidden" name="quote_for_teacher" value="0">
+                        <button id="typeMember" class="btn btn-primary" type="button" onclick="setMember()">Schülerspruch</button>
+                        <button id="typeTeacher" class="btn btn-outline-primary" type="button" onclick="setTeacher()">Lehrerspruch</button>
                     </div>
                     <div id="quoteMemberDiv" class="form-group">
                         <label for="quoteMember">Schüler wählen</label>
@@ -88,8 +93,34 @@
 
 @push('scripts')
 <script type="text/javascript">
-    document.getElementById('typeMember').addEventListener('change', function() {
-        alert('changed to member!');
-    });
+var for_teacher = 0;
+
+function setTeacher() {
+    if(for_teacher != 1) {
+        for_teacher = 1;
+        $("#typeMember").attr('class', 'btn btn-outline-primary');
+        $("#typeTeacher").attr('class', 'btn btn-primary');
+        $("#targetHidden").attr('value', '1');
+        $("#quoteMember").prop('required', false);
+        $("#quoteTeacher").prop('required', true);
+
+        $("#quoteTeacherDiv").attr('style', '');
+        $("#quoteMemberDiv").attr('style', 'display: none;');
+    }
+}
+
+function setMember() {
+    if(for_teacher != 0) {
+        for_teacher = 0;
+        $("#typeMember").attr('class', 'btn btn-primary');
+        $("#typeTeacher").attr('class', 'btn btn-outline-primary');
+        $("#targetHidden").attr('value', '0');
+        $("#quoteMember").prop('required', false);
+        $("#quoteTeacher").prop('required', true);
+
+        $("#quoteMemberDiv").attr('style', '');
+        $("#quoteTeacherDiv").attr('style', 'display: none;');
+    }
+}
 </script>
 @endpush
