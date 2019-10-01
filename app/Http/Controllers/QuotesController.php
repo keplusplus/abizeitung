@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Member;
 use App\Teacher;
+use App\Quote;
 
 class QuotesController extends Controller
 {
@@ -19,6 +20,16 @@ class QuotesController extends Controller
     }
 
     public function store() {
+        $data = request()->validate([
+          'quote_for_teacher' => 'required',
+          'member_id' => '',
+          'teacher_id' => '',
+          'quote' => 'required'
+        ]);
 
+        Quote::create($data);
+
+        $members = Member::all();
+        return view('comment/create', ['members' => $members, 'success' => 1]);
     }
 }
