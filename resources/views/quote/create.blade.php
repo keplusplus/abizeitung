@@ -16,8 +16,17 @@
                   <span style="font-style: italic;">Informationstext</span>
                   <form class="mt-3" method="post" action="{{ url('/quote') }}">
                     @csrf
-                    <quote-form></quote-form>
                     <div class="form-group">
+                        <div class="btn-group btn-group-toggle" id="quoteType" data-toggle="buttons">
+                            <label class="btn btn-outline-primary active">
+                                <input type="radio" name="type" id="typeMember" autocomplete="off" checked> Schülerspruch
+                            </label>
+                            <label class="btn btn-outline-primary">
+                                <input type="radio" name="type" id="typeTeacher" autocomplete="off"> Lehrerspruch
+                            </label>
+                        </div>
+                    </div>
+                    <div id="quoteMemberDiv" class="form-group">
                         <label for="quoteMember">Schüler wählen</label>
                         <select class="form-control" id="quoteMember" name="member_id" required>
                           <option value="" disabled selected>Schüler wählen</option>
@@ -33,7 +42,7 @@
                             </span>
                         @endif
                     </div>
-                    <div class="form-group d-none">
+                    <div id="quoteTeacherDiv" class="form-group" style="display: none;">
                         <label for="quoteTeacher">Lehrer wählen</label>
                         <select class="form-control" id="quoteTeacher" name="teacher_id">
                             <option value="" disabled selected>Lehrer wählen</option>
@@ -76,3 +85,11 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+<script type="text/javascript">
+    document.getElementById('typeMember').addEventListener('change', function() {
+        alert('changed to member!');
+    });
+</script>
+@endpush
