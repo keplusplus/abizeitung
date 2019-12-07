@@ -15,7 +15,7 @@ class CreateQuotesTable extends Migration
     {
         Schema::create('quotes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('text');
+            $table->string('quote');
             $table->boolean('for_teachers')->default(false);
             $table->unsignedBigInteger('member_id')->nullable();
             $table->unsignedBigInteger('teacher_id')->nullable();
