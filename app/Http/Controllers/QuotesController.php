@@ -27,9 +27,19 @@ class QuotesController extends Controller
           'quote' => 'required'
         ]);
 
-        Quote::create($data);
 
-        $members = Member::all();
-        return view('comment/create', ['members' => $members, 'success' => 1]);
+        if($data["quote_for_teacher"] == 0) {
+          unset($data["quote_for_teacher"]);
+          $data["for_teachers"] = false;
+          Quote::create($data);
+        } else if($data["quote_for_teacher"] == 1) {
+          unset($data["quote_for_teacher"]);
+          $data["for_teachers"] = true;
+          Quote::create($data);
+        }
+
+        $m = Member::all();
+        $t = Teacher::all();
+        return view('quote/create', ['success' => 1, 'members' => $m, 'teachers' => $t]);
     }
 }
