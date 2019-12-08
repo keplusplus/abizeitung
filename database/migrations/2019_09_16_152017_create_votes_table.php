@@ -17,7 +17,9 @@ class CreateVotesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('ranking_id');
             $table->unsignedBigInteger('teacher_id')->nullable();
+            $table->unsignedBigInteger('teacher2_id')->nullable();
             $table->unsignedBigInteger('member_id')->nullable();
+            $table->unsignedBigInteger('member2_id')->nullable();
             $table->timestamps();
         });
     }

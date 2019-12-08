@@ -44,7 +44,7 @@
                     <p>Eingeloggt als {{ Auth::user()->member->firstname . ' ' . Auth::user()->member->lastname }}.</p>
                     <div class="row justify-content-between">
                       <div class="col d-flex">
-                        <h4 class="h4 my-auto">Rankings (einmalig ausfüllen)</h4>
+                        <h4 class="h4 my-auto">Rankings (einmalig abstimmen)</h4>
                       </div>
                       <div class="col-auto">
                         @if(!isset($has_voted) || $has_voted == 0)
@@ -83,6 +83,15 @@
                       </div>
                       <div class="col-auto">
                         <a href="{{ url('/quote') }}" class="btn btn-primary">Einsenden</a>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row justify-content-between">
+                      <div class="col d-flex">
+                        <h4 class="h4 my-auto">Nachricht an Gremium (für Ideen, Wünsche, Anregungen)</h4>
+                      </div>
+                      <div class="col-auto">
+                        <a href="{{ url('/idea') }}" class="btn btn-primary">Verfassen</a>
                       </div>
                     </div>
                     <hr>

@@ -14,7 +14,15 @@ class Vote extends Model
       return $this->belongsTo(Teacher::class);
     }
 
+    public function teacher2() {
+      return $this->belongsTo(Teacher::class);
+    }
+
     public function member() {
+      return $this->belongsTo(Member::class);
+    }
+
+    public function member2() {
       return $this->belongsTo(Member::class);
     }
 }

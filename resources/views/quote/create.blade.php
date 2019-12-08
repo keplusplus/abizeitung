@@ -71,9 +71,9 @@
                     <div class="form-group">
                       <label for="quoteText">Spruch</label>
                       <textarea class="form-control" name="quote" id="quoteText" rows="4" cols="80" placeholder="Beschreibe kurz die Situation..." required></textarea>
-                      @if ($errors->has('comment'))
+                      @if ($errors->has('quote'))
                           <span class="invalid-feedback d-block" role="alert">
-                              <strong>{{ $errors->first('comment') }}</strong>
+                              <strong>{{ $errors->first('quote') }}</strong>
                           </span>
                       @endif
                     </div>

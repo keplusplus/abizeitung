@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Characteristics;
+use App\Teacher;
 
 class CharacterController extends Controller
 {
@@ -12,7 +13,8 @@ class CharacterController extends Controller
     }
 
     public function create() {
-        return view('characteristics/create');
+        $t = Teacher::all();
+        return view('characteristics/create', ['teachers' => $t]);
     }
 
     public function store()  {
@@ -23,13 +25,26 @@ class CharacterController extends Controller
 
         $data = request()->validate([
             'birthdate' => 'required',
+            'residence' => 'required|max:60',
+            'adv_courses' => 'required|max:50',
+            'right_advs' => 'required|max:160',
+            'best_topics' => 'required|max:120',
+            'worst_topics' => 'required|max:120',
+            'best_friends' => 'max:120',
+            'best_moment' => 'max:120',
+            'worst_moment' => 'max:120',
+            'teacher_id' => '',
+            'way_of_learning' => 'required|max:160',
+            'thanks' => 'required|max:800',
+            'most_important' => 'required|max:160',
+            'after_a_levels' => 'required|max:160',
+            'taken_from_school' => 'required|max:160',
             'data_accepted' => 'accepted'
         ]);
 
-        $cs = new Characteristics;
-        $cs->member_id = auth()->user()->member->id;
-        $cs->birthdate = $data['birthdate'];
-        $cs->save();
+        $data["member_id"] = auth()->user()->member->id;
+        unset($data["data_accepted"]);
+        Characteristics::create($data);
 
         return redirect()->route('home');
     }

@@ -20,6 +20,9 @@ Route::get('/comment', 'CommentsController@create')->name('comment');
 Route::post('/quote', 'QuotesController@store');
 Route::get('/quote', 'QuotesController@create')->name('quote');
 
+Route::post('/idea', 'IdeaController@store');
+Route::get('/idea', 'IdeaController@create')->name('idea');
+
 Route::post('/rankings', 'RankingController@store');
 Route::get('/rankings', 'RankingController@index');
 
