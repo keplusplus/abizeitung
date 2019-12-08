@@ -17,6 +17,9 @@ class CreateRankingsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->boolean('for_teachers')->default(false);
+            $table->boolean('is_female');
+            $table->boolean('only_tutor');
+            $table->boolean('pair');
             $table->timestamps();
         });
     }

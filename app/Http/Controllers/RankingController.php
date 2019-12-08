@@ -16,7 +16,7 @@ class RankingController extends Controller
 
     public function index() {
       $m = Member::all();
-      $t = Teacher::all();
+      $t = Teacher::all()->sortBy('lastname');
 
       $rt = Ranking::where('for_teachers', true)->get();
       $rm = Ranking::where('for_teachers', false)->get();
@@ -26,6 +26,7 @@ class RankingController extends Controller
     }
 
     public function store() {
+
       if(auth()->user()->has_voted == true) return redirect()->route('home');
 
       auth()->user()->has_voted = true;
@@ -35,20 +36,28 @@ class RankingController extends Controller
       $requirements = [];
       foreach ($rankings as $r) {
         $requirements['r' . $r->id] = 'required';
+        if($r->pair) $requirements['r' . $r->id . '_2'] = 'required';
       }
 
       $data = request()->validate($requirements);
 
       foreach ($data as $key => $pid) {
-        $rid = substr($key, 1);
+        if(!strpos($key, '_2')) {
+          $rid = substr($key, 1);
 
-        $vote = new Vote;
-        $vote->ranking_id = $rid;
-        if(!Ranking::find($rid)->for_teachers) $vote->member_id = $pid;
-        else $vote->teacher_id = $pid;
-        $vote->save();
+          $vote = new Vote;
+          $vote->ranking_id = $rid;
+          if(!Ranking::find($rid)->for_teachers) $vote->member_id = $pid;
+          else $vote->teacher_id = $pid;
+
+          if(Ranking::find($rid)->pair) {
+            if(!Ranking::find($rid)->for_teachers) $vote->member2_id = $pid;
+            else $vote->teacher2_id = $data[$key . '_2'];
+          }
+
+          $vote->save();
+        }
       }
-
       return redirect()->route('home');
     }
 }

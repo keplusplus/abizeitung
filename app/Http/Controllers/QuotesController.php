@@ -15,7 +15,7 @@ class QuotesController extends Controller
 
     public function create() {
         $m = Member::all();
-        $t = Teacher::all();
+        $t = Teacher::all()->sortBy('lastname');
         return view('quote/create', ['members' => $m, 'teachers' => $t]);
     }
 
@@ -39,7 +39,7 @@ class QuotesController extends Controller
         }
 
         $m = Member::all();
-        $t = Teacher::all();
+        $t = Teacher::all()->sortBy('lastname');
         return view('quote/create', ['success' => 1, 'members' => $m, 'teachers' => $t]);
     }
 }
