@@ -29,9 +29,6 @@ class RankingController extends Controller
 
       if(auth()->user()->has_voted == true) return redirect()->route('home');
 
-      auth()->user()->has_voted = true;
-      auth()->user()->save();
-
       $rankings = Ranking::all();
       $requirements = [];
       foreach ($rankings as $r) {
@@ -40,6 +37,9 @@ class RankingController extends Controller
       }
 
       $data = request()->validate($requirements);
+
+      auth()->user()->has_voted = true;
+      auth()->user()->save();
 
       foreach ($data as $key => $pid) {
         if(!strpos($key, '_2')) {
