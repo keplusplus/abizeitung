@@ -5,15 +5,15 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Spruch hinzufügen</div>
+                <div class="card-header">Zitat hinzufügen</div>
 
                 <div class="card-body">
                   @if (isset($success))
                     <div class="alert alert-success">
-                      Spruch wurde erfolgreich hinzugefügt!
+                      Zitat wurde erfolgreich hinzugefügt!
                     </div>
                   @endif
-                  <span style="font-style: italic;">Informationstext</span>
+                  <p>Hier kannst du alle gesammelten Sprüche aus den letzen Jahren eintragen. Wähle zunächst den Lehrer bzw. den Schüler aus und beschreibe dann kurz die Situation mit dem nötigen Kontext. Nach dem Absenden kannst du direkt mit dem nächsten Zitat fortfahren.</p>
                   <form class="mt-3" method="post" action="{{ url('/quote') }}" name="quoteform">
                     @csrf
                     <!--<div class="form-group">
@@ -69,7 +69,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="quoteText">Spruch</label>
+                      <label for="quoteText">Zitat</label>
                       <textarea class="form-control" name="quote" id="quoteText" rows="4" cols="80" placeholder="Beschreibe kurz die Situation..." required></textarea>
                       @if ($errors->has('quote'))
                           <span class="invalid-feedback d-block" role="alert">
