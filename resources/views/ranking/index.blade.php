@@ -10,8 +10,12 @@
                 <div class="card-body">
                   <h3 class="h3">Rankings</h3>
                   <p>
-                    Die abgegebenen Stimmen werden vollständig anonym verarbeitet. Abgedruckt werden voraussichtlich jeweils die Top 3 einer Kategorie.
+                      Auf dieser Seite findest du die Lehrer-/ und Schülerrankings, für die du hier deine Stimme abgeben kannst. Da du nicht zwischendrin speichern kannst, nimm dir ein bisschen Zeit. Bei Fragen kontaktiere uns einfach.
                   </p>
+                  <p>
+                      Die abgegebenen Stimmen werden natürlich vollständig anonym verarbeitet. Abgedruckt werden voraussichtlich jeweils die Top 3 einer Kategorie.
+                  </p>
+                  <hr>
                   <form method="post" action="{{ url('/rankings') }}">
                     @csrf
                     <h4 class="h4">Schülerrankings</h4>

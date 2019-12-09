@@ -79,7 +79,7 @@
                     <hr>
                     <div class="row justify-content-between">
                       <div class="col d-flex">
-                        <h4 class="h4 my-auto">Sprüche Lehrer / Schüler</h4>
+                        <h4 class="h4 my-auto">Zitate Lehrer / Schüler</h4>
                       </div>
                       <div class="col-auto">
                         <a href="{{ url('/quote') }}" class="btn btn-primary">Einsenden</a>
@@ -94,7 +94,6 @@
                         <a href="{{ url('/idea') }}" class="btn btn-primary">Verfassen</a>
                       </div>
                     </div>
-                    <hr>
 
                   @endauth
                 </div>

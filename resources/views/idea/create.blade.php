@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Nachricht an Gremium senden.</div>
+                <div class="card-header">Nachricht an Gremium senden</div>
 
                 <div class="card-body">
                   @if (isset($success))
@@ -13,7 +13,8 @@
                       Nachricht erfolgreich gesendet! Wir melden uns...
                     </div>
                   @endif
-                  <span style="font-style: italic;">Informationstext</span>
+                  <p>Wenn du eine Idee hast, die du uns unbedingt mitteilen möchtest, eigenen Inhalt beisteuern willst oder einfach eine Frage hast, kannst du dich hier einfach an uns wenden. Bitte hinterlasse auch eine E-Mail-Adresse oder deine Telefonnummer, jemand aus dem Gremium wird dich dann kontakieren. Alternativ kannst du jeden von uns auch einfach über WhatsApp ö. ä. anschreiben.</p>
+                  <hr>
                   <form class="mt-3" method="post" action="{{ url('/idea') }}" name="ideaform">
                     @csrf
                     <input id="targetHidden" type="hidden" name="member_id" value="{{ Auth::user()->member->id }}">
