@@ -32,7 +32,7 @@ Route::get('/characteristics', 'CharacterController@create');
 Route::get('/admin/generate', 'AdminController@generate');
 Route::get('/admin', 'AdminController@index')->name('admin');
 
-Route::get('/logout', 'LoginController@logout');
+Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::get('/{auth_key}', 'WelcomeController@codelogin');
 Route::get('/', 'WelcomeController@index')->name('home');
