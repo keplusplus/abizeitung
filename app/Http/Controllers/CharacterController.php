@@ -20,9 +20,6 @@ class CharacterController extends Controller
     public function store()  {
         if(auth()->user()->has_filled) return redirect()->route('home');
 
-        auth()->user()->has_filled = true;
-        auth()->user()->save();
-
         $data = request()->validate([
             'birthdate' => 'required',
             'residence' => 'required|max:60',
@@ -41,6 +38,9 @@ class CharacterController extends Controller
             'taken_from_school' => 'required|max:160',
             'data_accepted' => 'accepted'
         ]);
+
+        auth()->user()->has_filled = true;
+        auth()->user()->save();
 
         $data["member_id"] = auth()->user()->member->id;
         unset($data["data_accepted"]);

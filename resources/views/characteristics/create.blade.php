@@ -8,7 +8,10 @@
                 <div class="card-header">Steckbrief ausfüllen</div>
 
                 <div class="card-body">
-                    <form class="form" action="{{ url('/characteristics') }}" method="post">
+                    <p>Bitte fülle hier deinen persönlichen Steckbrief aus. Nimm dir dafür ein paar Minuten Zeit, denn speichern kannst du erst, wenn alles ausgefüllt ist. Sei gerne etwas Kreativ, dafür haben wir dir die Möglichkeit gegeben, auch bei Ja/Nein-Fragen mit Freitext zu antworten.</p>
+                    <p>Wenn du Fragen hast, kannst du dich persönlich an uns wenden, entweder direkt per WhatsApp oder mit dem Nachrichten-Funktion im Hauptmenü. Wir werden uns dann zeitnah bei dir melden.</p>
+                    <hr>
+                    <form class="form" action="{{ url('/characteristics') }}" methoD="post">
                     @csrf
                         <div class="form-group">
                             <label for="name">Name</label>
@@ -126,7 +129,7 @@
                         </div>
                         <div class="form-group">
                             <label for="thanks">Dankesworte</label>
-                            <textarea class="form-control" id="thanks" name="thanks" rows="4" cols="80" value="{{ old("thanks") }}" required></textarea>
+                            <textarea class="form-control" id="thanks" name="thanks" rows="4" cols="80" value="{{ old('thanks') }}" required maxlength=800""></textarea>
                             @if ($errors->has('thanks'))
                                 <span class="invalid-feedback d-block" role="alert">
                                     <strong>{{ $errors->first('thanks') }}</strong>
