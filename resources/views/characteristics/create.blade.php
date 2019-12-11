@@ -101,7 +101,7 @@
                         <div class="form-group">
                             <label for="best_teacher">Lieblingslehrer (optional)</label>
                             <select class="form-control" id="best_teacher" name="teacher_id" value="{{ old("teacher_id") }}">
-                                <option value="" disabled selected>Lehrer wählen</option>
+                                <option value="" selected>Lehrer wählen</option>
                               @foreach ($teachers as $teacher)
                                 <option value="{{ $teacher->id }}">
                                     @if($teacher->is_woman)

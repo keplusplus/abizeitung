@@ -16,12 +16,27 @@ class RankingController extends Controller
 
     public function index() {
       $m = Member::all();
+      $mm = $m->where('is_woman', 0);
+      $mf = $m->where('is_woman', 1);
+
       $t = Teacher::all()->sortBy('lastname');
+      $tm = $t->where('is_woman', 0);
+      $tf = $t->where('is_woman', 1);
+      $tutors = collect([$t->where('lastname', 'Schmallenbach')->first(), $t->where('lastname', 'Speer')->first()]);
 
       $rt = Ranking::where('for_teachers', true)->get();
       $rm = Ranking::where('for_teachers', false)->get();
 
-      $args = ['members' => $m, 'teachers' => $t, 'rankings_members' => $rm, 'rankings_teachers' => $rt];
+      $args = [
+          'members' => $m,
+          'members_male' => $mm,
+          'members_female' => $mf,
+          'teachers' => $t,
+          'teachers_male' => $tm,
+          'teachers_female' => $tf,
+          'tutors' => $tutors,
+          'rankings_members' => $rm,
+          'rankings_teachers' => $rt];
       return view('ranking/index', $args);
     }
 
@@ -33,7 +48,8 @@ class RankingController extends Controller
       $requirements = [];
       foreach ($rankings as $r) {
         $requirements['r' . $r->id] = 'required';
-        if($r->pair) $requirements['r' . $r->id . '_2'] = 'required';
+        if($r->pair) $requirements['r' . $r->id . '_2'] = 'required|different:r' . $r->id;
+        if($r->both_genders) $requirements['r' . $r->id . '_2'] = 'required';
       }
 
       $data = request()->validate($requirements);
@@ -50,7 +66,7 @@ class RankingController extends Controller
           if(!Ranking::find($rid)->for_teachers) $vote->member_id = $pid;
           else $vote->teacher_id = $pid;
 
-          if(Ranking::find($rid)->pair) {
+          if(Ranking::find($rid)->pair or Ranking::find($rid)->both_genders) {
             if(!Ranking::find($rid)->for_teachers) $vote->member2_id = $pid;
             else $vote->teacher2_id = $data[$key . '_2'];
           }
@@ -58,6 +74,7 @@ class RankingController extends Controller
           $vote->save();
         }
       }
+
       return redirect()->route('home');
     }
 }
