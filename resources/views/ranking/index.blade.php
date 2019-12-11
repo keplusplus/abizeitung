@@ -146,7 +146,7 @@
                               @if (!$t->is_woman)
                                 <option value="{{ $t->id }}" {{ (old('r' . $r->id) == $t->id ? "selected":"") }}>{{ 'Herr ' . $t->lastname }}</option>
                               @else
-                                <option value="{{ $t->id }}" {{ (old('r' . $r->id) == $t->id ? "selected":"") }}">{{ 'Frau ' . $t->lastname }}</option>
+                                <option value="{{ $t->id }}" {{ (old('r' . $r->id) == $t->id ? "selected":"") }}>{{ 'Frau ' . $t->lastname }}</option>
                               @endif
                             @endforeach
                           </select>

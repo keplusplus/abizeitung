@@ -20,7 +20,7 @@ class CreateRankingsTable extends Migration
             $table->boolean('for_teachers')->default(false);
             $table->boolean('both_genders')->default(false);
             $table->boolean('only_tutor')->default(false);
-            $table->boolean('pair')->default(false;
+            $table->boolean('pair')->default(false);
             $table->timestamps();
         });
     }
