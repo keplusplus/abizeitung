@@ -16,10 +16,11 @@ class CreateRankingsTable extends Migration
         Schema::create('rankings', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
+            $table->string('title_woman')->nullable();
             $table->boolean('for_teachers')->default(false);
-            $table->boolean('is_female');
-            $table->boolean('only_tutor');
-            $table->boolean('pair');
+            $table->boolean('both_genders')->default(false);
+            $table->boolean('only_tutor')->default(false);
+            $table->boolean('pair')->default(false;
             $table->timestamps();
         });
     }

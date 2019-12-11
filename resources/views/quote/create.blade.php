@@ -14,6 +14,7 @@
                     </div>
                   @endif
                   <p>Hier kannst du alle gesammelten Sprüche aus den letzen Jahren eintragen. Wähle zunächst den Lehrer bzw. den Schüler aus und beschreibe dann kurz die Situation mit dem nötigen Kontext. Nach dem Absenden kannst du direkt mit dem nächsten Zitat fortfahren.</p>
+                  <hr>
                   <form class="mt-3" method="post" action="{{ url('/quote') }}" name="quoteform">
                     @csrf
                     <!--<div class="form-group">
