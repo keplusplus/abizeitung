@@ -25,11 +25,7 @@ class CommentsController extends Controller
 
       Comment::create($data);
 
-      $members = Member::all();
-      unset($members[array_search(Auth::user(), $members)]);
       return view('comment/create', ['members' => self::getMembersWithoutAuthenticated(), 'success' => 1]);
-
-      //dd(request()->all());
     }
 
     private function getMembersWithoutAuthenticated() {

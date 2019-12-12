@@ -27,7 +27,7 @@
                     @foreach ($rankings_members as $r)
                       <div class="form-group">
                         @if (!$r->pair)
-                          @if (!$r->both_genders)
+                          @if ($r->both_genders)
                             <label for="r{{ $r->id }}">{{$r->title}}</label>
                             <select class="form-control" name="r{{ $r->id }}" id="r{{ $r->id }}" required>
                               @if (old('r' . $r->id) == null)
@@ -37,7 +37,12 @@
                                 <option value="{{ $m->id }}" {{ (old('r' . $r->id) == $m->id ? "selected":"") }}>{{ $m->firstname . ' ' . $m->lastname }}</option>
                               @endforeach
                             </select>
-                          @elseif ($r->both_genders)
+                            @if ($errors->has('r' . $r->id))
+                              <span class="invalid-feedback d-block" role="alert">
+                                <strong>{{ $errors->first('r' . $r->id) }}</strong>
+                              </span>
+                            @endif
+                          @elseif (!$r->both_genders)
                             @if (isset($r->title_woman))
                               <label for="r{{ $r->id . '_2' }}">{{ $r->title_woman }}</label>
                             @else
@@ -51,6 +56,11 @@
                                 <option value="{{ $m->id }}" {{ (old('r' . $r->id) == $m->id ? "selected":"") }}>{{ $m->firstname . ' ' . $m->lastname }}</option>
                               @endforeach
                             </select>
+                            @if ($errors->has('r' . $r->id))
+                              <span class="invalid-feedback d-block" role="alert">
+                                <strong>{{ $errors->first('r' . $r->id) }}</strong>
+                              </span>
+                            @endif
                             @if (isset($r->title_woman))
                               <label for="r{{ $r->id }}">{{$r->title}}</label>
                             @endif
@@ -62,6 +72,11 @@
                                 <option value="{{ $m->id }}" {{ (old('r' . $r->id . '_2') == $m->id ? "selected":"") }}>{{ $m->firstname . ' ' . $m->lastname }}</option>
                               @endforeach
                             </select>
+                            @if ($errors->has('r' . $r->id . '_2'))
+                              <span class="invalid-feedback d-block" role="alert">
+                                <strong>{{ $errors->first('r' . $r->id . '_2') }}</strong>
+                              </span>
+                            @endif
                           @endif
                         @elseif ($r->pair)
                           <label for="r{{ $r->id }}">{{$r->title}}</label>
@@ -73,6 +88,11 @@
                               <option value="{{ $m->id }}" {{ (old('r' . $r->id) == $m->id ? "selected":"") }}>{{ $m->firstname . ' ' . $m->lastname }}</option>
                             @endforeach
                           </select>
+                          @if ($errors->has('r' . $r->id))
+                            <span class="invalid-feedback d-block" role="alert">
+                              <strong>{{ $errors->first('r' . $r->id) }}</strong>
+                            </span>
+                          @endif
                           <select class="form-control mt-2" name="r{{ $r->id . '_2' }}" id="r{{ $r->id . '_2' }}" required>
                             @if (old('r' . $r->id . '_2') == null)
                               <option value="" disabled selected>Schülerin oder Schüler wählen</option>
@@ -96,7 +116,7 @@
                     @foreach ($rankings_teachers as $r)
                       <div class="form-group">
                         @if(!$r->pair and !$r->only_tutor)
-                          @if (!$r->both_genders)
+                          @if ($r->both_genders)
                             <label for="r{{ $r->id }}">{{$r->title}}</label>
                             <select class="form-control" name="r{{ $r->id }}" id="r{{ $r->id }}" required>
                               @if (old('r' . $r->id) == null)
@@ -110,7 +130,12 @@
                                 @endif
                               @endforeach
                             </select>
-                          @elseif ($r->both_genders)
+                            @if ($errors->has('r' . $r->id))
+                              <span class="invalid-feedback d-block" role="alert">
+                                <strong>{{ $errors->first('r' . $r->id) }}</strong>
+                              </span>
+                            @endif
+                          @elseif (!$r->both_genders)
                             @if (isset($r->title_woman))
                               <label for="r{{ $r->id . '_2' }}">{{ $r->title_woman }}</label>
                             @else
@@ -135,6 +160,11 @@
                                 <option value="{{ $t->id }}" {{ (old('r' . $r->id . '_2') == $t->id ? "selected":"") }}>{{ 'Herr ' . $t->lastname }}</option>
                               @endforeach
                             </select>
+                            @if ($errors->has('r' . $r->id . '_2'))
+                              <span class="invalid-feedback d-block" role="alert">
+                                <strong>{{ $errors->first('r' . $r->id . '_2') }}</strong>
+                              </span>
+                            @endif
                           @endif
                         @elseif($r->pair)
                           <label for="r{{ $r->id }}">{{$r->title}}</label>
@@ -150,6 +180,11 @@
                               @endif
                             @endforeach
                           </select>
+                          @if ($errors->has('r' . $r->id))
+                            <span class="invalid-feedback d-block" role="alert">
+                              <strong>{{ $errors->first('r' . $r->id) }}</strong>
+                            </span>
+                          @endif
                           <select class="form-control mt-2" name="r{{ $r->id . '_2' }}" id="r{{ $r->id . '_2' }}" required>
                             @if (old('r' . $r->id) == null)
                               <option value="" disabled selected>Lehrerin oder Lehrer wählen</option>
@@ -181,6 +216,11 @@
                               @endif
                             @endforeach
                           </select>
+                          @if ($errors->has('r' . $r->id))
+                            <span class="invalid-feedback d-block" role="alert">
+                              <strong>{{ $errors->first('r' . $r->id) }}</strong>
+                            </span>
+                          @endif
                         @endif
                       </div>
                     @endforeach
