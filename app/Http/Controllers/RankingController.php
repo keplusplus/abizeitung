@@ -48,8 +48,8 @@ class RankingController extends Controller
       $requirements = [];
       foreach ($rankings as $r) {
         $requirements['r' . $r->id] = 'required';
-        if($r->pair) $requirements['r' . $r->id . '_2'] = 'required|different:r' . $r->id;
-        if($r->both_genders) $requirements['r' . $r->id . '_2'] = 'required';
+        if($r->pair and !$r->only_tutor) $requirements['r' . $r->id . '_2'] = 'required|different:r' . $r->id;
+        if(!$r->pair and !$r->both_genders and !$r->only_tutor) $requirements['r' . $r->id . '_2'] = 'required';
       }
 
       $data = request()->validate($requirements);
@@ -66,7 +66,7 @@ class RankingController extends Controller
           if(!Ranking::find($rid)->for_teachers) $vote->member_id = $pid;
           else $vote->teacher_id = $pid;
 
-          if(Ranking::find($rid)->pair or Ranking::find($rid)->both_genders) {
+          if((Ranking::find($rid)->pair or !Ranking::find($rid)->both_genders) and !Ranking::find($rid)->only_tutor) {
             if(!Ranking::find($rid)->for_teachers) $vote->member2_id = $pid;
             else $vote->teacher2_id = $data[$key . '_2'];
           }
