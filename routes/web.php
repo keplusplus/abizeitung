@@ -30,6 +30,7 @@ Route::post('/characteristics', 'CharacterController@store');
 Route::get('/characteristics', 'CharacterController@create');
 
 Route::get('/admin/generate', 'AdminController@generate');
+Route::get('/admin/edit_ranking/{ranking_id}', 'AdminController@edit_ranking');
 Route::get('/admin', 'AdminController@index')->name('admin');
 
 Route::get('/logout', 'Auth\LoginController@logout');
