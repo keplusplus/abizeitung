@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -22,6 +23,9 @@ Route::get('/quote', 'QuotesController@create')->name('quote');
 
 Route::post('/idea', 'IdeaController@store');
 Route::get('/idea', 'IdeaController@create')->name('idea');
+
+Route::post('/moment', 'MomentsController@store');
+Route::get('/moment', 'MomentsController@create')->name('moment');
 
 Route::post('/rankings', 'RankingController@store');
 Route::get('/rankings', 'RankingController@index');

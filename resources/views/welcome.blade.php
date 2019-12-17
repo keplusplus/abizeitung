@@ -42,6 +42,16 @@
                   @auth
                     <!-- AUSWAHLMOEGLICHKEITEN -->
                     <p>Eingeloggt als {{ Auth::user()->member->firstname . ' ' . Auth::user()->member->lastname }}.</p>
+                    <p><span style="font-style: italic;">Einführungstext</span></p>
+                    <p>
+                      @if(isset(Auth::user()->member->photo_date))
+                        Dein Termin für das Steckbrief-Foto: {{ date('d.m.Y', strtotime(Auth::user()->member->photo_date)) }}<br>
+                        Bitte komm am genannten Tag in der ersten großen Pause (10:10 Uhr) ins Foyer.
+                      @else
+                        Du hast noch keinen Termin für das Steckbrief-Foto. Bitte wende dich an uns.
+                      @endif
+                    </p>
+                    <hr>
                     <div class="row justify-content-between">
                       <div class="col d-flex">
                         <h4 class="h4 my-auto">Rankings (einmalig abstimmen)</h4>
@@ -83,6 +93,15 @@
                       </div>
                       <div class="col-auto">
                         <a href="{{ url('/quote') }}" class="btn btn-primary">Einsenden</a>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row justify-content-between">
+                      <div class="col d-flex">
+                        <h4 class="h4 my-auto">"Wisst ihr noch als..."-Momente</h4>
+                      </div>
+                      <div class="col-auto">
+                        <a href="{{ url('/moment') }}" class="btn btn-primary">Einsenden</a>
                       </div>
                     </div>
                     <hr>
