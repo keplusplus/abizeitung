@@ -41,14 +41,22 @@
                   @endguest
                   @auth
                     <!-- AUSWAHLMOEGLICHKEITEN -->
-                    <p>Eingeloggt als {{ Auth::user()->member->firstname . ' ' . Auth::user()->member->lastname }}.</p>
-                    <p><span style="font-style: italic;">Einführungstext</span></p>
+                    <p><strong>Eingeloggt als {{ Auth::user()->member->firstname . ' ' . Auth::user()->member->lastname }}.</strong></p>
+                    <p>
+                      Dies ist Dein persönlicher Bereich, um sowohl inhaltlich, als auch mit weiteren Ideen und Anregungen zu unserer Abizeitung beizutragen.<br>
+                      Die meisten Angaben sollten selbsterklärend sein. Einmalig musst Du Deinen Steckbrief ausfüllen und die Stimmen für die Rankings abgeben. Alles andere kannst du immer wieder verwenden, beispielweise kannst du alle Deine gesammelten Sprüche von Schülern und Lehrern einsenden.<br>
+                      Wenn Du noch Fragen an uns hast, kannst Du Dich jederzeit über den letzen Punkt (Nachricht an Gremium) oder direkt per WhatsApp an uns wenden.
+                    </p>
+                    <p>
+                      Wir danken Dir schonmal für die Eintragungen und hoffen mit diesen eine schöne Abizeitung anfertigen zu können, die uns zukünftig immer wieder an unsere gemeinsame Zeit erinnern wird.<br>
+                      <strong>Das Gremium "Abizeitung"</strong>
+                    </p><br>
                     <p>
                       @if(isset(Auth::user()->member->photo_date))
                         Dein Termin für das Steckbrief-Foto: {{ date('d.m.Y', strtotime(Auth::user()->member->photo_date)) }}<br>
-                        Bitte komm am genannten Tag in der ersten großen Pause (10:10 Uhr) ins Foyer.
+                        Bitte komm am genannten Tag <strong>mit dem Abipulli</strong> in der ersten großen Pause (10:10 Uhr) ins Foyer.
                       @else
-                        Du hast noch keinen Termin für das Steckbrief-Foto. Bitte wende dich an uns.
+                        Du hast noch keinen Termin für das Steckbrief-Foto. Schau später an dieser Stelle noch einmal nach, der erste Termin ist der 3. Februar 2020.
                       @endif
                     </p>
                     <hr>
