@@ -13,7 +13,7 @@ class CharacterController extends Controller
     }
 
     public function create() {
-        $t = Teacher::all();
+        $t = Teacher::all()->sortBy('lastname');
         return view('characteristics/create', ['teachers' => $t]);
     }
 
