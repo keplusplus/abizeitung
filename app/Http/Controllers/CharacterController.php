@@ -13,6 +13,8 @@ class CharacterController extends Controller
     }
 
     public function create() {
+        if(auth()->user()->has_filled) return redirect()->route('home');
+
         $t = Teacher::all()->sortBy('lastname');
         return view('characteristics/create', ['teachers' => $t]);
     }
