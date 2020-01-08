@@ -30,7 +30,7 @@ class WelcomeController extends Controller
             return view('welcome', ['error' => 3]);
           } else {
             Auth::login($user);
-            return view('welcome');
+            return redirect()->route('home');
           }
         }
       } else {
