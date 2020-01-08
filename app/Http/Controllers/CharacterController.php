@@ -32,7 +32,7 @@ class CharacterController extends Controller
             'worst_moment' => 'max:120',
             'teacher_id' => '',
             'way_of_learning' => 'required|max:160',
-            'thanks' => 'required|max:800',
+            'thanks' => 'required|max:1600',
             'most_important' => 'required|max:160',
             'after_a_levels' => 'required|max:160',
             'taken_from_school' => 'required|max:160',
