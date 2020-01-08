@@ -27,7 +27,7 @@ class CreateCharacteristicsTable extends Migration
             $table->string('worst_moment')->nullable();
             $table->unsignedBigInteger('teacher_id')->nullable();
             $table->string('way_of_learning');
-            $table->string('thanks');
+            $table->longText('thanks');
             $table->string('most_important');
             $table->string('after_a_levels');
             $table->string('taken_from_school');
