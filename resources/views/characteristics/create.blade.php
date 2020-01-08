@@ -134,7 +134,7 @@
                         </div>
                         <div class="form-group">
                             <label for="thanks">Dankesworte</label>
-                            <textarea class="form-control" id="thanks" name="thanks" rows="4" cols="80" required maxlength=800"">{{ old("thanks") }}</textarea>
+                            <textarea class="form-control" id="thanks" name="thanks" rows="4" cols="80" required maxlength=800>{{ old("thanks") }}</textarea>
                             @if ($errors->has('thanks'))
                                 <span class="invalid-feedback d-block" role="alert">
                                     <strong>{{ $errors->first('thanks') }}</strong>
