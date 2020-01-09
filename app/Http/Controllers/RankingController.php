@@ -67,7 +67,7 @@ class RankingController extends Controller
           else $vote->teacher_id = $pid;
 
           if((Ranking::find($rid)->pair or !Ranking::find($rid)->both_genders) and !Ranking::find($rid)->only_tutor) {
-            if(!Ranking::find($rid)->for_teachers) $vote->member2_id = $pid;
+            if(!Ranking::find($rid)->for_teachers) $vote->member2_id = $data[$key . '_2'];//$vote->member2_id = $pid;
             else $vote->teacher2_id = $data[$key . '_2'];
           }
 
