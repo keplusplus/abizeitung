@@ -24,7 +24,11 @@
                         </div>
                         <div class="form-group">
                             <label for="bd">Geburtsdatum</label>
-                            <input class="form-control" id="bd" type="date" name="birthdate" value="2002-01-01" required>
+                            @if (old('birthdate') !== null)
+                              <input class="form-control" id="bd" type="date" name="birthdate" value="{{ old('birthdate') }}" required>
+                            @else
+                              <input class="form-control" id="bd" type="date" name="birthdate" value="2002-01-01" required>
+                            @endif
                             @if ($errors->has('birthdate'))
                                 <span class="invalid-feedback d-block" role="alert">
                                     <strong>{{ $errors->first('birthdate') }}</strong>
