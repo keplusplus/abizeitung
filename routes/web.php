@@ -15,6 +15,12 @@
 
 Auth::routes();
 
+Route::get("/images/{image}", function($img) {
+  ob_start();
+  require(path("public") . "images/" . $img);
+  return ob_get_clean();
+});
+
 Route::post('/comment', 'CommentsController@store');
 Route::get('/comment', 'CommentsController@create')->name('comment');
 
