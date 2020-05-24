@@ -15,6 +15,15 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+              @if(isset($construction))
+                <div class="card-header">Wartungsarbeiten</div>
+
+                <div class="card-body">
+                  <div class="alert alert-warning outline-warning border border-warning">
+                  Hier entsteht eine Seite für den Abiturjahrgang 2020.
+                  </div>
+                </div>
+              @else
                 <div class="card-header">Hauptmenü</div>
 
                 <div class="card-body">
@@ -124,6 +133,7 @@
 
                   @endauth
                 </div>
+              @endif
             </div>
         </div>
     </div>
