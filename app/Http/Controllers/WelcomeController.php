@@ -9,8 +9,9 @@ use App\User;
 class WelcomeController extends Controller
 {
     public function index() {
-      if(auth()->guest()) return view('welcome', ['error' => 1]);
-      else return view('welcome', ['has_voted' => auth()->user()->has_voted, 'has_filled' => auth()->user()->has_filled]);
+      /* UNCOMMENT THIS (AN COMMENT OUT THE NEXT) TO REENABLE THE ABIZEITUNG APPLICATION --- if(auth()->guest()) return view('welcome', ['error' => 1]);
+      else return view('welcome', ['has_voted' => auth()->user()->has_voted, 'has_filled' => auth()->user()->has_filled]);*/
+      return view('welcome', ['construction' => 1]);
     }
 
     public function codelogin($auth_key) {

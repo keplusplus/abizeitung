@@ -45,5 +45,5 @@ Route::get('/admin', 'AdminController@index')->name('admin');
 
 Route::get('/logout', 'Auth\LoginController@logout');
 
-Route::get('/{auth_key}', 'WelcomeController@codelogin');
+//UNCOMMENT THIS TO REENABLE THE ABIZEITUNG APPLICATION --- Route::get('/{auth_key}', 'WelcomeController@codelogin');
 Route::get('/', 'WelcomeController@index')->name('home');
